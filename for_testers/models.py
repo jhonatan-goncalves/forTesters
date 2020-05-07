@@ -16,6 +16,7 @@ class Projeto(models.Model):
     nome = models.CharField("Nome", max_length=200)
     descricao = models.TextField("Descrição")
     status = models.CharField("Status", max_length=2, choices=STATUSP_CHOICES, blank=False, null=False)
+    data_criacao = models.DateTimeField(default=timezone.now)
 
     def criacao(self):
         self.data_criacao = timezone.now()
@@ -55,4 +56,5 @@ class Roteiro(models.Model):
     status = models.CharField("Status",max_length=2, choices=STATUSR_CHOICES, blank=False, null=False)
     projetos = models.ManyToManyField(Projeto)
     cenarios = models.ManyToManyField(Cenario)
-
+    data_criacao = models.DateTimeField(default=timezone.now)
+ 
