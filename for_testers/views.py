@@ -10,7 +10,7 @@ from .models import Projeto, Roteiro, Cenario
 # Create your views here.
 class Index(LoginRequiredMixin, View):
     template = 'index.html'
-    login_url = '/login/'
+    LOGIN_URL = '/login/'
     
     def get(self, request):
         projetos = Projeto.objects.all()
@@ -40,7 +40,7 @@ def projeto_lista(request):
     return render(request, 'projeto_lista.html',{'projetos': projetos})
 
 def roteiro_lista(request):
-    roteiros = Roteiros.objects.filter(data_criacao__lte=timezone.now()).order_by('id')
+    roteiros = Roteiro.objects.filter(data_criacao__lte=timezone.now()).order_by('id')
     return render(request, 'roteiro_lista.html',{'roteiros': roteiros})
 
 def cenario_lista(request):
