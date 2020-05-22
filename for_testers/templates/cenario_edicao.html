@@ -1,6 +1,7 @@
+
 {% extends "base.html" %}
 
-{% block title %}Projetos{% endblock %}
+{% block title %}Novo Cenário{% endblock %}
 
 {% block links %}
 <!-- Custom styles for this template-->
@@ -99,36 +100,24 @@
                     <li class="breadcrumb-item">
                         <a href="/">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active">Projetos</li>
+                    <li class="breadcrumb-item">
+                        <a href="/cenario_lista.html/">Cenários</a>
+                    </li>
+                    <li class="breadcrumb-item active">Novo Cenário</liclass></li>
                 </ol>
 
-                <!-- DataTables Example -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        Projetos</div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Descrição</th>
-                                        <th>Status</th>
-                                        <th>Responsável</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for projetos in projetos %}
-                                    <tr>
-                                        <td>{{ projetos.nome }}</td>
-                                        <td>{{ projetos.descricao }}</td>
-                                        <td>{{ projetos.status }}</td>
-                                        <td>{{ projetos.responsavel }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+                <div class="container">
+                    <h2>Novo Cenário</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card text-black bg-light" width="100%" cellspacing="0">
+                                <div class="card-body">
+                                    <form method="POST" class="cenario-form">{% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button type="submit" class="save btn btn-success">Salvar</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,3 +187,4 @@
 
 </body>
 {% endblock %}
+
