@@ -108,7 +108,9 @@
                         <i class="fas fa-table"></i>
                         Cenários
                     </div>
+                    {% if user.is_authenticated %}
                     <a type="button" class="btn btn-primary col" href="{% url 'cenario_novo' %}">Novo Cenário</a>
+                    {% endif %}
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -129,8 +131,10 @@
                                         <td>{{ cenarios.criticidade }}</td>
                                         <td>{{ cenarios.data_criacao }}</td>
                                         <td><a type="button" class="btn btn-secondary fas fa-eye" href="{% url 'cenario_detalhes' pk=cenarios.pk %}"></a>
+                                            {% if user.is_authenticated %}
                                             <a type="button" class="btn btn-warning fas fa-edit" href="{% url 'cenario_edicao' pk=cenarios.pk %}"></a>
-                                            <a type="button" class="btn btn-danger fas fa-trash-alt" href="{% url 'cenario_detalhes' pk=cenarios.pk %}"></a>
+                                            <a type="button" class="btn btn-danger fas fa-trash-alt" href="{% url 'cenario_deletar' cenarios.pk %}"></a>
+                                            {% endif %}
                                         </td>
                                     </tr>
                                     {% endfor %}

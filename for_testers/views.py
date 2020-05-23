@@ -93,3 +93,8 @@ def cenario_edicao(request, pk):
     else:
         form = CenarioForm(instance=cenarios)
         return render(request, 'cenario_edicao.html', {'form': form})
+
+def cenario_deletar(request, pk):
+    cenarios = get_object_or_404(Cenario, pk=pk)
+    cenarios.delete()
+    return HttpResponseRedirect('cenarios_lista.html')

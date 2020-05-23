@@ -10,4 +10,5 @@ urlpatterns = [
     path('cenario/<int:pk>/', views.cenario_detalhes, name='cenario_detalhes'),
     path('cenario/novo/', views.cenario_novo, name='cenario_novo'),
     path('cenario/<int:pk>/edicao/', views.cenario_edicao, name='cenario_edicao'),
+    path('cenario/<int:pk>', views.cenario_deletar, name='cenario_deletar'),
 ]
