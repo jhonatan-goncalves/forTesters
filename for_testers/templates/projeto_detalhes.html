@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Detalhes do Cenário{% endblock %}
+{% block title %}Detalhes do Projeto{% endblock %}
 
 {% block links %}
 <!-- Custom styles for this template-->
@@ -86,22 +86,22 @@
                         <a href="/">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/cenario_lista.html/">Cenários</a>
+                        <a href="/roteiro_lista.html/">Projetos</a>
                     </li>
                     <li class="breadcrumb-item active">Detalhes</liclass>
                     </li>
                 </ol>
 
                 <div class="container">
-                    <h2>Detalhes do Cenário</h2>
+                    <h2>Detalhes do Projeto</h2>
                     <div class="row">
                         <div class="col-12">
                             <div class="card text-black bg-light" width="100%" cellspacing="0">
                                 <div class="card-body">
                                     <div class="post">
-                                        {% if cenarios.data_criacao %}
+                                        {% if projetos.data_criacao %}
                                         <div class="date">
-                                            {{ cenarios.data_criacao }}
+                                            {{ projetos.data_criacao }}
                                         </div>
                                         {% endif %}
                                         <fieldset disabled>
@@ -109,32 +109,27 @@
                                                 <div class="col">
                                                     <label for="nome">Nome: </label>
                                                     <input id="nome" type="text" class="form-control" name="nome"
-                                                        value="{{ cenarios.nome }}">
+                                                        value="{{ projetos.nome }}">
                                                 </div>
                                                 <div class="col">
-                                                    <label for="nome">Criticidade: </label>
-                                                    <select id="nome" class="form-control" name="criticidade">
-                                                        <option>{{ cenarios.criticidade }}</option>
-                                                    </select>
+                                                    <label for="nome">Responsável: </label>
+                                                    <input id="nome" type="text" class="form-control" name="nome"
+                                                        value="{{ projetos.responsavel }}">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
                                                     <label for="descricao">Descricao: </label>
                                                     <textarea
-                                                        class="form-control">{{ cenarios.descricao|linebreaksbr }}</textarea>
+                                                        class="form-control">{{ projetos.descricao|linebreaksbr }}</textarea>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <label for="resultadoEsperado">Resultado Esperado: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.resultado_esperado|linebreaksbr }}</textarea>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="resultadoObtido">Resultado Obtido: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.resultado_obtido|linebreaksbr }}</textarea>
+                                                    <label for="nome">Status: </label>
+                                                    <select id="nome" class="form-control" name="criticidade">
+                                                        <option>{{ projetos.status }}</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </fieldset>

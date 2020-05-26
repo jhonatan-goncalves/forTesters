@@ -41,6 +41,8 @@ class Cenario(models.Model):
     resultado_obtido = models.TextField()
     data_criacao = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.nome
 
 class Roteiro(models.Model):
     
@@ -57,4 +59,7 @@ class Roteiro(models.Model):
     projetos = models.ManyToManyField(Projeto)
     cenarios = models.ManyToManyField(Cenario)
     data_criacao = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.nome
  

@@ -1,6 +1,7 @@
+
 {% extends "base.html" %}
 
-{% block title %}Detalhes do Cenário{% endblock %}
+{% block title %}Novo Roteiro{% endblock %}
 
 {% block links %}
 <!-- Custom styles for this template-->
@@ -86,59 +87,21 @@
                         <a href="/">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/cenario_lista.html/">Cenários</a>
+                        <a href="/projeto_lista.html/">Roteiros</a>
                     </li>
-                    <li class="breadcrumb-item active">Detalhes</liclass>
-                    </li>
+                    <li class="breadcrumb-item active">Novo Roteiro</liclass></li>
                 </ol>
 
                 <div class="container">
-                    <h2>Detalhes do Cenário</h2>
+                    <h2>Novo Roteiro</h2>
                     <div class="row">
                         <div class="col-12">
                             <div class="card text-black bg-light" width="100%" cellspacing="0">
                                 <div class="card-body">
-                                    <div class="post">
-                                        {% if cenarios.data_criacao %}
-                                        <div class="date">
-                                            {{ cenarios.data_criacao }}
-                                        </div>
-                                        {% endif %}
-                                        <fieldset disabled>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="nome">Nome: </label>
-                                                    <input id="nome" type="text" class="form-control" name="nome"
-                                                        value="{{ cenarios.nome }}">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="nome">Criticidade: </label>
-                                                    <select id="nome" class="form-control" name="criticidade">
-                                                        <option>{{ cenarios.criticidade }}</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="descricao">Descricao: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.descricao|linebreaksbr }}</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="resultadoEsperado">Resultado Esperado: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.resultado_esperado|linebreaksbr }}</textarea>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="resultadoObtido">Resultado Obtido: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.resultado_obtido|linebreaksbr }}</textarea>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
+                                    <form method="POST" class="roteiro-form">{% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button type="submit" class="save btn btn-success">Salvar</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -210,3 +173,4 @@
 
 </body>
 {% endblock %}
+
