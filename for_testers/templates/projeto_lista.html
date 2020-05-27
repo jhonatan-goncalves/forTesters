@@ -106,6 +106,7 @@
                                         <th>Descrição</th>
                                         <th>Status</th>
                                         <th>Responsável</th>
+                                        <th>Data de Criação</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -116,13 +117,13 @@
                                         <td>{{ projetos.descricao }}</td>
                                         <td>{{ projetos.status }}</td>
                                         <td>{{ projetos.responsavel }}</td>
+                                        <td>{{ projetos.data_criacao }}</td>
                                         <td>
                                             <a type="button" class="btn btn-secondary fas fa-eye" href="{% url 'projeto_detalhes' pk=projetos.pk %}"></a>
                                             {% if user.is_authenticated %}
                                             <a type="button" class="btn btn-warning fas fa-edit" href="{% url 'projeto_edicao' pk=projetos.pk %}"></a>
                                             <a type="button" class="btn btn-danger fas fa-trash-alt" href="{% url 'projeto_deletar' projetos.pk %}"></a>
                                             {% endif %}
-
                                         </td>
                                     </tr>
                                     {% endfor %}

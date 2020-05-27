@@ -21,15 +21,6 @@
 
         <!-- Navbar Search -->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Busca por..." aria-label="Buscar"
-                    aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
         </form>
 
         <!-- Navbar -->
@@ -84,11 +75,6 @@
                     <a class="dropdown-item" href="/roteiro_lista.html/">Roteiros</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Gráficos</span></a>
-            </li>
         </ul>
 
         <div id="content-wrapper">
@@ -113,7 +99,43 @@
                             <div class="card text-black bg-light" width="100%" cellspacing="0">
                                 <div class="card-body">
                                     <form method="POST" class="cenario-form">{% csrf_token %}
-                                        {{ form.as_p }}
+                                        {% if cenarios.data_criacao %}
+                                        <div class="date">
+                                            {{ cenarios.data_criacao }}
+                                        </div>
+                                        {% endif %}
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="nome">Nome: </label>
+                                                    <input id="nome" type="text" class="form-control" name="nome"
+                                                        value="{{ cenarios.nome }}">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="nome">Criticidade: </label>
+                                                    <select multiple id="nome" class="form-control" name="criticidade">
+                                                        <option>{{ cenarios.criticidade }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="descricao">Descricao: </label>
+                                                    <textarea
+                                                        class="form-control">{{ cenarios.descricao|linebreaksbr }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="resultadoEsperado">Resultado Esperado: </label>
+                                                    <textarea
+                                                        class="form-control">{{ cenarios.resultado_esperado|linebreaksbr }}</textarea>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="resultadoObtido">Resultado Obtido: </label>
+                                                    <textarea
+                                                        class="form-control">{{ cenarios.resultado_obtido|linebreaksbr }}</textarea>
+                                                </div>
+                                            </div>
                                         <button type="submit" class="save btn btn-success">Salvar</button>
                                     </form>
                                 </div>

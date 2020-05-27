@@ -99,7 +99,50 @@
                             <div class="card text-black bg-light" width="100%" cellspacing="0">
                                 <div class="card-body">
                                     <form method="POST" class="roteiro-form">{% csrf_token %}
-                                        {{ form.as_p }}
+                                        {% if roteiros.data_criacao %}
+                                        <div class="date">
+                                            {{ roteiros.data_criacao }}
+                                        </div>
+                                        {% endif %}
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="nome">Nome: </label>
+                                                    <input id="nome" type="text" class="form-control" name="nome"
+                                                        value="{{ roteiros.nome }}">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="nome">Responsável: </label>
+                                                    <input id="nome" type="text" class="form-control" name="nome"
+                                                        value="{{ roteiros.responsavel }}">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="descricao">Descricao: </label>
+                                                    <textarea
+                                                        class="form-control">{{ roteiros.descricao|linebreaksbr }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="nome">Status: </label>
+                                                    <select id="nome" class="form-control" name="criticidade">
+                                                        <option>{{ roteiros.status }}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="resultadoObtido">Projetos: </label>
+                                                    <select  multiple id="nome" class="form-control" name="criticidade">
+                                                        <option>{{ roteiros.projetos }}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="resultadoObtido">Cenários: </label>
+                                                    <select multiple id="nome" class="form-control" name="criticidade">
+                                                        <option>{{ roteiros.cenarios }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         <button type="submit" class="save btn btn-success">Salvar</button>
                                     </form>
                                 </div>

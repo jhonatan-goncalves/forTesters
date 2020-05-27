@@ -99,7 +99,38 @@
                             <div class="card text-black bg-light" width="100%" cellspacing="0">
                                 <div class="card-body">
                                     <form method="POST" class="projeto-form">{% csrf_token %}
-                                        {{ form.as_p }}
+                                        {% if projetos.data_criacao %}
+                                        <div class="date">
+                                            {{ projetos.data_criacao }}
+                                        </div>
+                                        {% endif %}
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="nome">Nome: </label>
+                                                    <input id="nome" type="text" class="form-control" name="nome"
+                                                        value="{{ projetos.nome }}">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="nome">Responsável: </label>
+                                                    <input id="nome" type="text" class="form-control" name="nome"
+                                                        value="{{ projetos.responsavel }}">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="descricao">Descricao: </label>
+                                                    <textarea
+                                                        class="form-control">{{ projetos.descricao|linebreaksbr }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="nome">Status: </label>
+                                                    <select id="nome" class="form-control" name="criticidade">
+                                                        <option>{{ projetos.status }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         <button type="submit" class="save btn btn-success">Salvar</button>
                                     </form>
                                 </div>
