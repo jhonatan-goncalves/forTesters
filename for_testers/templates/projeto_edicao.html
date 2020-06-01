@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block title %}Novo Projeto{% endblock %}
@@ -89,7 +88,8 @@
                     <li class="breadcrumb-item">
                         <a href="/projeto_lista.html/">Projetos</a>
                     </li>
-                    <li class="breadcrumb-item active">Novo Projeto</liclass></li>
+                    <li class="breadcrumb-item active">Novo Projeto</liclass>
+                    </li>
                 </ol>
 
                 <div class="container">
@@ -104,34 +104,37 @@
                                             {{ projetos.data_criacao }}
                                         </div>
                                         {% endif %}
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="nome">Nome: </label>
-                                                    <input id="nome" type="text" class="form-control" name="nome"
-                                                        value="{{ projetos.nome }}">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="nome">Responsável: </label>
-                                                    <input id="nome" type="text" class="form-control" name="nome"
-                                                        value="{{ projetos.responsavel }}">
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="responsavel">Responsável: </label>
+                                                {{form.responsavel }}
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="descricao">Descricao: </label>
-                                                    <textarea
-                                                        class="form-control">{{ projetos.descricao|linebreaksbr }}</textarea>
-                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="status">Status: </label>
+                                                {{form.status }}
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="nome">Status: </label>
-                                                    <select id="nome" class="form-control" name="criticidade">
-                                                        <option>{{ projetos.status }}</option>
-                                                    </select>
-                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="nome">Nome do Projeto: </label>
+                                                {{ form.nome }}
                                             </div>
-                                        <button type="submit" class="save btn btn-success">Salvar</button>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="descricao">Descrição: </label>
+                                                {{ form.descricao}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="data_criacao">Data de Criação: </label>
+                                                {{form.data_criacao}}
+                                            </div>
+                                        </div>
+                                                <button type="submit" class="save btn btn-success">Salvar</button>
                                     </form>
                                 </div>
                             </div>
@@ -146,7 +149,7 @@
             <footer class="sticky-footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright © TG Fatec Franca 2020</span>
+                        <span>Desenvolvido pelo alunos Jhonatan Gonçalves e Sosthenes Ribeiro</span>
                     </div>
                 </div>
             </footer>
@@ -204,4 +207,3 @@
 
 </body>
 {% endblock %}
-

@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block title %}Novo Roteiro{% endblock %}
@@ -89,7 +88,8 @@
                     <li class="breadcrumb-item">
                         <a href="/projeto_lista.html/">Roteiros</a>
                     </li>
-                    <li class="breadcrumb-item active">Novo Roteiro</liclass></li>
+                    <li class="breadcrumb-item active">Novo Roteiro</liclass>
+                    </li>
                 </ol>
 
                 <div class="container">
@@ -104,67 +104,72 @@
                                             {{ roteiros.data_criacao }}
                                         </div>
                                         {% endif %}
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="nome">Nome: </label>
-                                                    <input id="nome" type="text" class="form-control" name="nome"
-                                                        value="{{ roteiros.nome }}">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="nome">Responsável: </label>
-                                                    <input id="nome" type="text" class="form-control" name="nome"
-                                                        value="{{ roteiros.responsavel }}">
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="responsavel">Responsável: </label>
+                                                {{form.responsavel}}
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="descricao">Descricao: </label>
-                                                    <textarea
-                                                        class="form-control">{{ roteiros.descricao|linebreaksbr }}</textarea>
-                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="status">Status: </label>
+                                                {{ form.status }}
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="nome">Status: </label>
-                                                    <select id="nome" class="form-control" name="criticidade">
-                                                        <option>{{ roteiros.status }}</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="resultadoObtido">Projetos: </label>
-                                                    <select  multiple id="nome" class="form-control" name="criticidade">
-                                                        <option>{{ roteiros.projetos }}</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="resultadoObtido">Cenários: </label>
-                                                    <select multiple id="nome" class="form-control" name="criticidade">
-                                                        <option>{{ roteiros.cenarios }}</option>
-                                                    </select>
-                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="nome">Nome: </label>
+                                                {{ form.nome}}
                                             </div>
-                                        <button type="submit" class="save btn btn-success">Salvar</button>
-                                    </form>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="descricao">Descricao: </label>
+                                                {{form.descricao}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="projeto">Projeto: </label>
+                                                {{form.projetos}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="cenario">Cenário: </label>
+                                                {{form.cenarios}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="data_criacao">Data de Criação: </label>
+                                                {{form.data_criacao}}
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
+                            <button type="submit" class="save btn btn-success">Salvar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!-- /.container-fluid -->
-
-            <!-- Sticky Footer -->
-            <footer class="sticky-footer">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright © TG Fatec Franca 2020</span>
-                    </div>
-                </div>
-            </footer>
-
         </div>
-        <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Desenvolvido pelo alunos Jhonatan Gonçalves e Sosthenes Ribeiro</span>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
 
     </div>
     <!-- /#wrapper -->
@@ -216,4 +221,3 @@
 
 </body>
 {% endblock %}
-

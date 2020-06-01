@@ -162,7 +162,7 @@ def projeto_edicao(request, pk):
 def cenario_deletar(request, pk):
     cenarios = get_object_or_404(Cenario, pk=pk)
     cenarios.delete()
-    return HttpResponseRedirect('cenarios_lista.html')
+    return redirect('cenarios_lista.html')
 
 def roteiro_deletar(request, pk):
     roteiros = get_object_or_404(Roteiro, pk=pk)

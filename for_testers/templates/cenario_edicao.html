@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block title %}Novo Cenário{% endblock %}
@@ -89,7 +88,8 @@
                     <li class="breadcrumb-item">
                         <a href="/cenario_lista.html/">Cenários</a>
                     </li>
-                    <li class="breadcrumb-item active">Novo Cenário</liclass></li>
+                    <li class="breadcrumb-item active">Novo Cenário</liclass>
+                    </li>
                 </ol>
 
                 <div class="container">
@@ -104,38 +104,36 @@
                                             {{ cenarios.data_criacao }}
                                         </div>
                                         {% endif %}
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="nome">Nome: </label>
-                                                    <input id="nome" type="text" class="form-control" name="nome"
-                                                        value="{{ cenarios.nome }}">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="nome">Criticidade: </label>
-                                                    <select multiple id="nome" class="form-control" name="criticidade">
-                                                        <option>{{ cenarios.criticidade }}</option>
-                                                    </select>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="nome">Nome: </label>
+                                                {{form.nome }}
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="descricao">Descricao: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.descricao|linebreaksbr }}</textarea>
-                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="nome">Descrição: </label>
+                                                {{ form.descricao }}
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <label for="resultadoEsperado">Resultado Esperado: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.resultado_esperado|linebreaksbr }}</textarea>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="resultadoObtido">Resultado Obtido: </label>
-                                                    <textarea
-                                                        class="form-control">{{ cenarios.resultado_obtido|linebreaksbr }}</textarea>
-                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="resultadoEsperado">Resultado Esperado: </label>
+                                                {{ form.resultado_esperado}}
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="resultadoObtido">Resultado Obtido: </label>
+                                                {{form.resultado_obtido}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label for="criticidade">Criticidade: </label>
+                                                {{form.criticidade}}
+                                            </div>
+                                        </div>
                                         <button type="submit" class="save btn btn-success">Salvar</button>
                                     </form>
                                 </div>
@@ -151,7 +149,7 @@
             <footer class="sticky-footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright © TG Fatec Franca 2020</span>
+                        <span>Desenvolvido pelo alunos Jhonatan Gonçalves e Sosthenes Ribeiro</span>
                     </div>
                 </div>
             </footer>
@@ -209,4 +207,3 @@
 
 </body>
 {% endblock %}
-
