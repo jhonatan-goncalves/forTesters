@@ -162,14 +162,20 @@ def projeto_edicao(request, pk):
 def cenario_deletar(request, pk):
     cenarios = get_object_or_404(Cenario, pk=pk)
     cenarios.delete()
-    return redirect('cenarios_lista.html')
+    return redirect('/cenario_lista.html')
 
 def roteiro_deletar(request, pk):
     roteiros = get_object_or_404(Roteiro, pk=pk)
     roteiros.delete()
-    return HttpResponseRedirect('roteiro_lista.html')
+    return HttpResponseRedirect('/roteiro_lista.html')
 
 def projeto_deletar(request, pk):
     projetos = get_object_or_404(Projeto, pk=pk)
     projetos.delete()
-    return HttpResponseRedirect('projeto_lista.html')
+    return HttpResponseRedirect('/projeto_lista.html')
+
+###-----------------------Contadores-------------------------------------
+
+def cenario_contador(request):
+    qtde_cenarios= Cenario.objects.all().count() 
+    return render(request)
