@@ -74,15 +74,19 @@
                     <li class="breadcrumb-item active">Projetos</li>
                 </ol>
 
+                {% if user.is_authenticated %}
+                <div class="col-lg-12" style="text-align: right;">
+                <a type="button" class="btn btn-primary col-2" href="{% url 'projeto_novo' %}">Adicionar Projeto</a>
+                </div>
+                {% endif %}
+
+                <div><br></div>
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-table"></i>
                         Projetos
                     </div>
-                    {% if user.is_authenticated %}
-                    <a type="button" class="btn btn-primary col" href="{% url 'projeto_novo' %}">Adicionar Projeto</a>
-                    {% endif %}
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -160,7 +164,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Sair</a>
+                    <a class="btn btn-primary" href="/login.html">Sair</a>
                 </div>
             </div>
         </div>

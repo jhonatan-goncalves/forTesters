@@ -177,5 +177,5 @@ def projeto_deletar(request, pk):
 ###-----------------------Contadores-------------------------------------
 
 def cenario_contador(request):
-    qtde_cenarios= Cenario.objects.all().count() 
-    return render(request)
+    qtde_cenarios= Cenario.objects.all.count() 
+    return render(request,"/", {'qtde_cenarios': qtde_cenarios})
